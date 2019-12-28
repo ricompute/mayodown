@@ -1,0 +1,52 @@
+p {
+  font-size: 15px;
+  line-height: 24px;
+}
+
+h1 {
+  font-size: 127%;
+}
+
+.title {
+  margin-right: 200px;
+  font-weight: 400;
+}
+
+h2 {
+  color: rgb(112, 111, 111);
+  font-size: 121%;
+}
+
+h3 {
+  font-size: 109%;
+  font-weight: bold;
+}
+
+h4 {
+  font-size: 100%;
+  font-weight: bold;
+  font-style: italic;
+}
+
+
+code span.kw { color: var(--mayo-red); font-weight: normal; } /* Keyword */
+code span.dt { color: var(--mayo-purple); } /* DataType */
+code span.dv { color: var(--mayo-teal); } /* DecVal */
+code span.bn { color: var(--mayo-teal); } /* BaseN */
+code span.fl { color: var(--mayo-teal); } /* Float */
+code span.ch { color: var(--mayo-brightblue); } /* Char */
+code span.st { color: var(--mayo-blue); } /* String */
+code span.co { color: #969896; font-style: italic; } /* Comment */
+code span.ot { color: var(--mayo-green); } /* Other */
+
+pre code {
+  padding: 0;
+  color: var(--mayo-brightblue);
+  border: none;
+}
+
+@media (max-width: 768px) {
+  #TOC {
+    margin-top: 100px;
+  }
+}

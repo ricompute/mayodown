@@ -1,0 +1,16 @@
+template:
+  package: mayotemplate
+
+reference:
+- title: R Markdown Rendering Engines
+  desc:  Create Mayo-Themed documents from R Markdown
+  contents:
+  - mayohtml
+  - mayodocx
+  - mayomoon_reader
+- title: Open R Markdown Templates
+  desc: Open a Mayo-Themed R Markdown template
+  contents:
+  - use_mayohtml
+  - use_mayodocx
+  - use_mayomoon_reader

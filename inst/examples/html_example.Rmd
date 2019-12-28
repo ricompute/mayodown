@@ -1,0 +1,54 @@
+---
+title: "Mayo-Themed Rmarkdown"
+author: First Last
+date: "`r format(Sys.time(), '%d %B, %Y')`"
+output: 
+  mayodown::mayohtml:
+    toc: false
+knit: (function(inputFile, encoding) {
+      rmarkdown::render(inputFile,
+                        encoding=encoding,
+                        output_dir="../../docs/articles/")})
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE) 
+```
+
+# Motivation
+
+Creating a Mayo themed Rmarkdown template would help create standardized reports with a polished look.
+
+# Sample code and output
+
+The code below is only meant to display a few code chunks and output.
+
+## Load libraries
+
+```{r}
+library(dplyr)
+library(ggplot2)
+```
+
+## Data
+
+The `diamonds` data set will be used as an example.
+
+```{r}
+diamonds %>% select(cut, carat, color, clarity) %>% head() %>%  knitr::kable()
+```
+
+## Here's a new section
+
+## Plot
+
+```{r}
+data <- diamonds %>% 
+  group_by(cut) %>% 
+  count()
+
+ggplot(data, aes(cut, n, fill = cut)) +
+  geom_bar(stat = "identity") +
+  scale_fill_brewer(palette = "Blues")  +
+  theme_minimal()
+```

@@ -1,0 +1,136 @@
+---
+title: "Creating a Mayo-Themed Word file"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{mayodoxc}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+
+# Basic Usage
+
+The theme can be used by including it in the document YAML, as shown below.
+
+
+```yaml
+---
+output: 
+  mayodown::mayodocx:
+    in_greeting:
+        from: "Author 1 and Author 2"
+        to: "Some PIs you did this report for"
+        re: "An interesting title for this example"
+---
+```
+
+# Sample output
+
+<div class="embed-responsive embed-responsive-16by9 shadow">
+<iframe  class="embed-responsive-item" align = "center" width = "100%" height = "600px" allow="fullscreen" src="sample_word_output.pdf"/>
+</div>
+
+# Memo header and contact information
+
+Headers and contact info can be removed using `header = FALSE` and `contact = FALSE`.  Default contact information will be pulled from your `.Rprofile` if it is set.
+
+```{r eval = F}
+options(mayodown.person = "First Last",
+        mayodown.ext = "X-XXXX",
+        mayodown.email = "Last.First@mayo.edu")
+```
+
+# Headers
+
+The following headers are available in the default style. Headers 1-3 are left aligned and are used for headers and sub-headers.  Header 4 is centered for tables.  
+
+<div class="shadow">
+```{r out.width='60%', fig.align='center', echo=FALSE}
+knitr::include_graphics("word_headers.png", dpi = 600)
+```
+</div>
+
+# Tables
+
+To help generate publication-ready tables, consider using [`mRclwhip`](https://overdodactyl.github.io/mRclwhip/reference/index.html), which provides convenient wrappers around `flextable` and supports objects output from `arsenal::tableby`.
+
+
+# Page breaks, multi-column layouts, landscape pages, and more
+
+`mayodown::mayodocx` uses [`officedown`](https://github.com/davidgohel/officedown) as a base rendering engine.  This allows for the use of additional styling options like page breaks, multi-column layouts, intermixed landscape and portrait pages, styled text, and more.  
+
+
+# Further Customization in Word
+
+Some styling is still not feasible via `mayodown`.  To help format tables and images, you can consider using the following macros in word once the document is rendered. 
+
+You will only have to add these macros to Word one time.
+
+**About Macros**
+
+[Create or run a macro](https://support.office.com/en-us/article/create-or-run-a-macro-c6b99036-905c-49a6-818a-dfb98b7c3c9c)
+
+**Tables**
+
+Create a macro to help standardize the look of tables outside of what can be done by `R`. 
+
+```{sass eval = F}
+Sub FormatTables()
+  If ActiveDocument.Tables.Count > 0 Then
+    Dim objTable As Object
+
+    Application.Browser.Target = wdBrowseTable
+    For Each objTable In ActiveDocument.Tables
+      objTable.AutoFitBehavior (wdAutoFitWindow)
+    Next
+  End If
+End Sub
+```
+
+
+**Put every table on it's own page**
+
+
+```{sass eval = F}
+Sub PagePerTable()
+'
+' PagePerTable Macro
+'
+'
+ 
+For Each Tbl In ActiveDocument.Tables
+    Set myRange = Tbl.Range
+    With myRange
+        .Collapse Direction:=wdCollapseEnd
+        .InsertBreak Type:=wdPageBreak
+    End With
+    Next
+ 
+End Sub
+```
+
+**Figures**
+
+This macro reduces the size of all figures in an active document to 45% of its original size.
+
+```{sass eval = F}
+Sub FormatFigures()
+
+Dim shp As InlineShape
+
+For Each shp In ActiveDocument.InlineShapes
+    shp.ScaleHeight = 45
+    shp.ScaleWidth = 45
+Next
+
+End Sub
+```
+
+

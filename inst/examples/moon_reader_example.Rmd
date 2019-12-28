@@ -1,0 +1,52 @@
+---
+title: "A Title For Your Presentation"
+author: "Author"
+date: "2019-12-23 (updated: `r Sys.Date()`)"
+output: mayodown::mayomoon_reader
+subtitle: "Subtitle"
+institute: "Mayo Clinic - HSR"
+---
+
+
+```{r setup, include=FALSE}
+options(htmltools.dir.version = FALSE)
+```
+
+
+# Overview
+
+**Overview:** This is a Mayo Clinic template for `xaringan::moon_reader()`.  See the package documentation<sup>1</sup> and examples<sup>2</sup> for more information regarding usage.
+
+
+.footnote[
+[1] https://github.com/yihui/xaringan
+
+[2] https://slides.yihui.org/xaringan/
+]
+
+---
+class: inverse, center, middle
+
+# Intro Slide
+
+### An interesting New Section
+
+---
+
+# Overview
+
+Here's a new slide that show piece by piece
+
+--
+
+* One
+
+--
+
+* Two
+
+--
+
+* Three
+
+
