@@ -3,6 +3,10 @@ language: R
 sudo: false
 cache: packages
 
+r_github_packages:
+  - davidgohel/officedown
+  - overdodactyl/mayotheme
+
 jobs:
   include:
   - r: release
