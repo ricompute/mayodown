@@ -3,12 +3,12 @@
 #' @param ... Additional arguments passed to xaringan::moon_reader
 #' @export
 
-mayomoon_reader = function(nature =  list(countIncrementalSlides = "no",
+mayomoon_reader <- function(nature =  list(countIncrementalSlides = "no",
                                        highlightLines = "yes",
                                        highlightStyle = "github"), ...) {
 
   ## Directories for resources
-  pkg_resource = function(...) {
+  pkg_resource <- function(...) {
     system.file("resources", ..., package = "mayodown")
   }
 

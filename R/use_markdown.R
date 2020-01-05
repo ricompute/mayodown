@@ -1,6 +1,8 @@
 #' Create and open a Mayo themed Rmd file
 #'
-#' Create a Mayo themed Rmd file to render to either word, html or xaringan::moon_reader.  If the usethis packages is installed and RStudio is in use, the file will be opened in the text editor.
+#' Create a Mayo themed Rmd file to render to either word, html or
+#'     xaringan::moon_reader.  If the usethis packages is installed and
+#'    RStudio is in use, the file will be opened in the text editor.
 #'
 #' @param name file, or file path, for the generated markdown file.
 #' @param overwrite logical; should existing destination files be overwritten?
@@ -39,4 +41,3 @@ use_markdown <- function(name, template, overwrite) {
     usethis::edit_file(name)
   }
 }
-
