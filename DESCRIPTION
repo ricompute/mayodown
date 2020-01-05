@@ -6,6 +6,7 @@ Authors@R: as.person(c(
     "Matt Spiegel <Spiegel.Matthew@mayo.edu> [ctb]"
   ))
 Description: Used to create a Mayo themed PDF or Word document from R Markdown.
+URL: https://overdodactyl.github.io/mayodown, https://github.com/overdodactyl/mayodown/
 License: GPL-3
 Encoding: UTF-8
 LazyData: true
@@ -13,7 +14,9 @@ Imports:
     rmarkdown,
     officedown,
     officer,
-    xaringan
+    xaringan,
+    htmltools,
+    mayotheme
 Suggests: 
     knitr,
     dplyr,

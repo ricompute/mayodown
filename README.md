@@ -5,6 +5,8 @@
 
 <!-- badges: start -->
 
+[![Travis build
+status](https://travis-ci.org/overdodactyl/mayodown.svg?branch=master)](https://travis-ci.org/overdodactyl/mayodown)
 <!-- badges: end -->
 
 The goal of mayodown is to quickly generate Mayo themed R Markdown
@@ -40,7 +42,7 @@ engine in your R Markdown header. For example:
 ---
 title: "Mayo-Themed Rmarkdown"
 author: First Last
-date: "24 December, 2019"
+date: "05 January, 2020"
 output: mayodown::mayohtml
 ---
 ```
