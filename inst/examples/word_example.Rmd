@@ -6,6 +6,8 @@ output:
       person: "First Last"
       ext: "X-XXXX"
       email: "Last.First@email.com"
+      department: "Division of Biomedical Statistics and Informatics"
+      location: "Jacksonville"
     in_greeting:
         from: "Author 1 and Author 2"
         to: "Some PIs you did this report for"

@@ -18,7 +18,9 @@ use_mayomoon_reader(name, overwrite = FALSE)
 \item{overwrite}{logical; should existing destination files be overwritten?}
 }
 \description{
-Create a Mayo themed Rmd file to render to either word, html or xaringan::moon_reader.  If the usethis packages is installed and RStudio is in use, the file will be opened in the text editor.
+Create a Mayo themed Rmd file to render to either word, html or
+xaringan::moon_reader.  If the usethis packages is installed and
+RStudio is in use, the file will be opened in the text editor.
 }
 \examples{
 \dontrun{

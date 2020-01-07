@@ -15,7 +15,8 @@ mayohtml(
 \arguments{
 \item{toc}{logical; TRUE to include a table of contents in the output}
 
-\item{toc_float}{TRUE to float the table of contents to the left of the main document content.}
+\item{toc_float}{TRUE to float the table of contents to the left
+of the main document content.}
 
 \item{toc_depth}{Depth of headers to include in table of contents}
 

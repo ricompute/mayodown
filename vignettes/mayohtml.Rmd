@@ -41,7 +41,13 @@ output: mayodown::mayohtml
 # Sample output
 
 ```{r echo=FALSE, include=FALSE}
-rmarkdown::render("../inst/examples/html_example.Rmd", output_dir = "../docs/articles/")
+rmarkdown::render("../inst/examples/html_example.Rmd", output_dir = ".")
+# htmltools::includeHTML("html_example.html")
+
+```
+
+```{r}
+htmltools::tags$iframe(src = "html_example.html")
 ```
 
 

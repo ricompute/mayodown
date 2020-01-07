@@ -15,8 +15,9 @@
 #' use_mayomoon_reader("test_xaringan", overwrite = TRUE)
 #' }
 
-use_mayodocx <- function(name, overwrite = FALSE) {
-  use_markdown(name = name, template = "word", overwrite = overwrite)
+use_mayodocx <- function(name, blank = TRUE,  overwrite = FALSE) {
+  temp <- ifelse(blank, "word_blank", "word_memo")
+  use_markdown(name = name, template = temp, overwrite = overwrite)
 }
 
 #' @export
