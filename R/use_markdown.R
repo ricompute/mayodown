@@ -6,7 +6,8 @@
 #'
 #' @param name file, or file path, for the generated markdown file.
 #' @param overwrite logical; should existing destination files be overwritten?
-#'
+#' @param blank logical; should a blank word template be used? If false,
+#'     If FALSE, a memo format will be used
 #' @export
 #' @examples
 #' \dontrun{
