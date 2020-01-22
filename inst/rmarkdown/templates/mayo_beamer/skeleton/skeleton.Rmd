@@ -1,0 +1,171 @@
+---
+title: "Title"
+author: "Author"
+date: "Date"
+output: 
+  rlocal::mayo_beamer:
+    toc: true
+    slide_level: 2
+section-title-slides: true
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo=FALSE)
+```
+
+# Introduction
+
+## How to Use?
+
+- From R Studio
+    1. File -> New File -> R Markdown 
+    2. Select From Template
+    3. Select Mayo Beamer Presentation Template 
+    4. Enter Name and Location and click OK
+        + A new directory at the location specified will be created containing the template Rmd file
+        + The Rmd file will also open in the R Studio editor
+    5. Edit the file and click the Knit button to compile
+
+## How to Use?
+
+- From R 
+    1. library(rmarkdown) \newline
+       draft("/dir/location/myfile.Rmd", template="mayo_beamer", package="rlocal") 
+        - A new directory (/dir/location/myfile) will be created
+        - /dir/location/myfile/myfile.Rmd will also open
+    2. Edit myfile.Rmd and save
+    3. Compile using render function \newline
+       render("/dir/location/myfile/myfile.Rmd")
+
+## Example Slide with Bullets 
+
+- Bullet 1
+- Bullet 2
+    + Sub Bullet 1
+    + Sub Bullet 2
+        * Sub Sub Bullet 1
+- Bullet 3
+    1. Ordered Sub Bullet 1
+    2. Ordered Sub Bullet 2
+
+## Example Slide with R Output
+
+```{r ex1, echo=TRUE}
+summary(cars)
+```
+
+## Example Slide with Plot
+
+```{r ex2}
+plot(pressure)
+```
+
+## Example Slide with Table
+
+```{r ex3, results="asis"}
+library(knitr)
+kable(mtcars[1:5,1:5])
+```
+
+# Customizations
+
+## Sections
+
+The slide level option in the YAML metadata defines the number of section levels
+
+- slide_level: 1
+    + using # will be slide titles (no sections)
+- slide_level: 2 (default) 
+    + using # will result in section headings
+    + using ## will be slide titles
+- slide_level: 3
+    + using # will result in section headings
+    + using ## will result in subsection headings
+    + using ### will be slide titles
+
+## Outline Slide (if using sections)
+
+If you want to include an outline slide after the title slide, put "toc: true" under the output statement in your YAML metadata \newline
+
+| - - -
+| output:    
+|   rlocal:mayo_beamer:   
+|     toc: true
+| - - -
+
+## Incremental Bullets (All Slides)
+
+If you want to include incremental bullets for all slides, put "incremental: true" under the output statement in your YAML metadata \newline
+
+| - - -
+| output:    
+|   rlocal:mayo_beamer:   
+|     incremental: true
+| - - -
+
+## Incremental Bullets (Only Some Slides)
+
+If you want bullets to be incremental for certain slides you can add ">" prior to the bullet or text
+
+> - Incremental Bullet 1
+> - Incremental Bullet 2
+> - Incremental Bullet 3
+
+## Resizing Content
+
+If you want to change the size of text in some slides, add the following prior to the text you want the different size for: \newline
+  
+\tiny \\tiny   \scriptsize \\scriptsize  \footnotesize \\footnotesize  \small \\small  
+\normalsize \\normalsize \large \\large  \Large \\Large  \LARGE \\LARGE  
+\huge \\huge \Huge \\Huge  
+  
+## Adding References (using .bib file) 
+
+\small
+
+1. An example bibliography.bib file is already located in the directory when using the mayo beamer template
+2. Add the following to your YAML metadata to use
+
+    | - - -
+    | bibliography:  bibliography.bib 
+    | - - -
+
+3. Include inline references using the syntax `[@reference_id]`  
+4. Include uncited references by adding the following to your YAML metadata 
+
+    | - - -
+    | nocite: |
+    |  @ref1, @ref2, etc.
+    | - - - 
+
+## Adding References (using references in YAML metadata)
+
+\small
+
+1. Add references to your YAML metadata
+
+    | - - -
+    | references:
+    | - id: R
+    |   type: book
+    |   title: 'R: A Language and Environment for Statistical Computing'
+    |   author:
+    |     - family: 'R Core Team'
+    |   publisher: 'R Foundation for Statistical Computing'
+    |   publisher-place: 'Vienna, Austria'
+    |   issued:
+    |   - year: '2015'
+    |   URL: 'http://www.R-project.org/'
+    | - - -
+
+2. Same as steps 3. and 4. from previous slide
+
+# Resources
+
+## Resources
+
+- [\underline{\textcolor{blue}{R Markdown Presentations with Beamer}}](http://rmarkdown.rstudio.com/beamer_presentation_format.html)
+- [\underline{\textcolor{blue}{R Markdown Bibliographies}}](http://rmarkdown.rstudio.com/authoring_bibliographies_and_citations.html)
+- [\underline{\textcolor{blue}{R Markdown Cheatsheet}}](https://www.rstudio.com/wp-content/uploads/2015/02/rmarkdown-cheatsheet.pdf)
+
+
