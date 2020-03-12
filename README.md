@@ -6,7 +6,7 @@
 <!-- badges: start -->
 
 [![Travis build
-status](https://travis-ci.org/overdodactyl/mayodown.svg?branch=master)](https://travis-ci.org/overdodactyl/mayodown)
+status](https://travis-ci.org/mayoverse/mayodown.svg?branch=master)](https://travis-ci.org/mayoverse/mayodown)
 <!-- badges: end -->
 
 The goal of mayodown is to quickly generate Mayo themed R Markdown
@@ -18,7 +18,7 @@ You can install `mayodown` from GitHub:
 
 ``` r
 # install.packages("devtools")
-devtools::install_github("overdodactyl/mayodown")
+devtools::install_github("mayoverse/mayodown")
 ```
 
 ## Supported Formats
@@ -42,7 +42,7 @@ engine in your R Markdown header. For example:
 ---
 title: "Mayo-Themed Rmarkdown"
 author: First Last
-date: "05 January, 2020"
+date: "12 March, 2020"
 output: mayodown::mayohtml
 ---
 ```
