@@ -1,15 +1,19 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans|Source+Sans+Pro&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
+
 p {
   font-size: 15px;
   line-height: 24px;
 }
 
 h1 {
-  font-size: 127%;
+  font-size: 150%;
 }
 
 .title {
   margin-right: 200px;
   font-weight: 400;
+  color: var(--mayo-blue);
 }
 
 h2 {
@@ -28,22 +32,22 @@ h4 {
   font-style: italic;
 }
 
-
-code span.kw { color: var(--mayo-red); font-weight: normal; } /* Keyword */
-code span.dt { color: var(--mayo-purple); } /* DataType */
-code span.dv { color: var(--mayo-teal); } /* DecVal */
-code span.bn { color: var(--mayo-teal); } /* BaseN */
-code span.fl { color: var(--mayo-teal); } /* Float */
-code span.ch { color: var(--mayo-brightblue); } /* Char */
-code span.st { color: var(--mayo-blue); } /* String */
-code span.co { color: #969896; font-style: italic; } /* Comment */
-code span.ot { color: var(--mayo-green); } /* Other */
-
-pre code {
-  padding: 0;
-  color: var(--mayo-brightblue);
-  border: none;
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Roboto' !important;
 }
+
+body *, html * {
+  font-family: 'Open Sans' !important;
+}
+
+code span.kw { color: var(--mayo-blue); font-weight: bold; } /* Keyword */
+code span.ot { color: var(--mayo-blue); } /* Other */
+code span.fl,
+code span.sc,
+span.st,
+span.bn,
+code span.dv{ color: var(--mayo-brightblue); }
+
 
 @media (max-width: 768px) {
   #TOC {

@@ -8,7 +8,7 @@ mayohtml(
   toc = FALSE,
   toc_float = TRUE,
   toc_depth = 6,
-  number_sections = TRUE,
+  number_sections = FALSE,
   ...
 )
 }

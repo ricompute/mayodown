@@ -1,7 +1,8 @@
 .Rproj.user
 inst/doc
-sessionInfoLog
+.sessionInfoLog
 tests
 ._.DS_Store
 docs/
 docs
+tests/
