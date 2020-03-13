@@ -36,8 +36,8 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i
 
 ```{r}
 tibble(
-  a = lubridate::now() + runif(1e3) * 86400,
-  b = lubridate::today() + runif(1e3) * 30,
+  a = Sys.time() + runif(1e3) * 86400,
+  b = Sys.Date() + runif(1e3) * 30,
   c = 1:1e3,
   d = runif(1e3),
   e = sample(letters, 1e3, replace = TRUE)
