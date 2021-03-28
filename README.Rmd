@@ -35,15 +35,18 @@ devtools::install_github("mayoverse/mayodown")
 
 - HTML document (based on `rmarkdown::html_document`)
 
-- Microsoft Word document (based on `officedown`)
+- Microsoft Word document (based on `officedown::rdocx_document`)
 
 - remark.js slide presentation (based on `xaringan::moon_reader`)
 
-Please contact the authors if additional formats are needed.
+- Beamer slides (based on `rmarkdown::beamer_presentation`)
+
+- ioslides (based on `rmarkdown::ioslides_presentation`)
+
 
 ## Usage
 
-To use, simply use the `mayohtml`, `mayodocx`, or `mayomoon_reader` engine in your R Markdown header.  For example:
+To use, simply use the `mayohtml`, `mayodocx`, or `mayomoon_reader`, `mayoioslides`, or `mayobeamer` engine in your R Markdown header.  For example:
 
 ```yaml
 ---

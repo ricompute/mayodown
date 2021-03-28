@@ -25,24 +25,27 @@ devtools::install_github("mayoverse/mayodown")
 
 `mayodown` supports the following outputs:
 
-  - HTML document (based on `rmarkdown::html_document`)
+-   HTML document (based on `rmarkdown::html_document`)
 
-  - Microsoft Word document (based on `officedown`)
+-   Microsoft Word document (based on `officedown::rdocx_document`)
 
-  - remark.js slide presentation (based on `xaringan::moon_reader`)
+-   remark.js slide presentation (based on `xaringan::moon_reader`)
 
-Please contact the authors if additional formats are needed.
+-   Beamer slides (based on `rmarkdown::beamer_presentation`)
+
+-   ioslides (based on `rmarkdown::ioslides_presentation`)
 
 ## Usage
 
-To use, simply use the `mayohtml`, `mayodocx`, or `mayomoon_reader`
-engine in your R Markdown header. For example:
+To use, simply use the `mayohtml`, `mayodocx`, or `mayomoon_reader`,
+`mayoioslides`, or `mayobeamer` engine in your R Markdown header. For
+example:
 
 ``` yaml
 ---
 title: "Mayo-Themed Rmarkdown"
 author: First Last
-date: "12 March, 2020"
+date: "28 March, 2021"
 output: mayodown::mayohtml
 ---
 ```
@@ -56,8 +59,7 @@ You can open a `mayodown` template using RStudio or one of the
 
 ### RStudio
 
-**Step 1:** Click the “New File” button and choose “R
-Markdown”.
+**Step 1:** Click the “New File” button and choose “R Markdown”.
 
 <img src="man/figures/open_markdown.png" width="60%" style="display: block; margin: auto;" />
 
