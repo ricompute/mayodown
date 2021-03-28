@@ -4,7 +4,7 @@ subtitle: "Sub-Title"
 author: "Name"
 date: "Date"
 output:
-  rlocal::mayo_ioslides:
+  mayodown::mayoioslides:
     logo: MC_stack_4c.png
 ---
 
@@ -77,22 +77,5 @@ http://rmarkdown.rstudio.com/ioslides_presentation_format.html
 - Display Modes (f=fullscreen, w=widescreen, o=overview mode)
 - Incremental Bullets
 - Etc.
-
-# Interactivity
-
-## DT - R Package {.smaller}
-
-```{r}
-library(DT)
-datatable(iris, filter="top")
-```
-
-## plotly - R Package
-
-```{r}
-library(plotly)
-plot_ly(data = iris, x = ~Sepal.Length, y = ~Petal.Length, color = ~Species)
-```
-
 
 

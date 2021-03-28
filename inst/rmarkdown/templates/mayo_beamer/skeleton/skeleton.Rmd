@@ -3,7 +3,7 @@ title: "Title"
 author: "Author"
 date: "Date"
 output: 
-  rlocal::mayo_beamer:
+  mayodown::mayobeamer:
     toc: true
     slide_level: 2
 section-title-slides: true

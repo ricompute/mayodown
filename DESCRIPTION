@@ -23,5 +23,5 @@ Suggests:
     ggplot2,
     usethis
 Roxygen: list(markdown = TRUE)
-RoxygenNote: 7.0.2
+RoxygenNote: 7.1.1
 VignetteBuilder: knitr
