@@ -5,7 +5,7 @@ output:
   rmarkdown::html_vignette:
     toc: false
 vignette: >
-  %\VignetteIndexEntry{mayohtml}
+  %\VignetteIndexEntry{Creating a Mayo-Themed HTML file}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 ---
@@ -42,14 +42,7 @@ output: mayodown::mayohtml
 
 ```{r echo=FALSE, include=FALSE}
 rmarkdown::render("../inst/examples/html_example.Rmd", output_dir = ".")
-# htmltools::includeHTML("html_example.html")
-
 ```
-
-```{r}
-htmltools::tags$iframe(src = "html_example.html")
-```
-
 
 <div class="embed-responsive embed-responsive-16by9 shadow">
 <iframe  class="embed-responsive-item" align = "center" width = "100%" height = "600px" allow="fullscreen" src="html_example.html#zoom=133"/>

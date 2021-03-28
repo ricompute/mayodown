@@ -8,8 +8,3 @@ output: mayodown::mayohtml
 knitr::opts_chunk$set(echo = FALSE, fig.width = 8)
 library(tidyverse)
 ```
-
-
-```{r load data}
-
-```

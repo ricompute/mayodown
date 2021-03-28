@@ -6,8 +6,6 @@
 #'
 #' @param name file, or file path, for the generated markdown file.
 #' @param overwrite logical; should existing destination files be overwritten?
-#' @param blank logical; should a blank word template be used? If false,
-#'     If FALSE, a memo format will be used
 #' @export
 #' @examples
 #' \dontrun{
@@ -16,9 +14,8 @@
 #' use_mayomoon_reader("test_xaringan", overwrite = TRUE)
 #' }
 
-use_mayodocx <- function(name, blank = TRUE,  overwrite = FALSE) {
-  temp <- ifelse(blank, "word_blank", "word_memo")
-  use_markdown(name = name, template = temp, overwrite = overwrite)
+use_mayodocx <- function(name, overwrite = FALSE) {
+  use_markdown(name = name, overwrite = overwrite)
 }
 
 #' @export

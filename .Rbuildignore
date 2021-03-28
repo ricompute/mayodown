@@ -8,3 +8,5 @@
 ^tests$
 ^sessionInfoLog$
 ^\.travis\.yml$
+^doc$
+^Meta$

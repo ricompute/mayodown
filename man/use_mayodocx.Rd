@@ -6,7 +6,7 @@
 \alias{use_mayomoon_reader}
 \title{Create and open a Mayo themed Rmd file}
 \usage{
-use_mayodocx(name, blank = TRUE, overwrite = FALSE)
+use_mayodocx(name, overwrite = FALSE)
 
 use_mayohtml(name, overwrite = FALSE)
 
@@ -14,9 +14,6 @@ use_mayomoon_reader(name, overwrite = FALSE)
 }
 \arguments{
 \item{name}{file, or file path, for the generated markdown file.}
-
-\item{blank}{logical; should a blank word template be used? If false,
-If FALSE, a memo format will be used}
 
 \item{overwrite}{logical; should existing destination files be overwritten?}
 }

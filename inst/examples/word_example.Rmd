@@ -1,43 +1,39 @@
 ---
-title: ""
-output: 
-  mayodown::mayodocx:
-    in_contact:
-      person: "First Last"
-      ext: "X-XXXX"
-      email: "Last.First@email.com"
-      department: "Division of Biomedical Statistics and Informatics"
-      location: "Jacksonville"
-    in_greeting:
-        from: "Author 1 and Author 2"
-        to: "Some PIs you did this report for"
-        re: "An interesting title for this example"
+title: "Rmarkdown output example"
+date: '`r format(Sys.time(), "%d %B, %Y")`'
+author: "Author Name"
+output: mayodown::mayodocx
 ---
 
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = FALSE)
+knitr::opts_chunk$set(
+  echo = FALSE,
+  dpi = 600,
+  fig.cap = TRUE,
+  fig.align = "center"
+)
+
 library(officedown)
-library(magrittr)
+library(tidyverse)
 ```
 
+\newpage
+
+```{r}
+officer::block_toc()
+```
+
+\newpage
 
 # Aims
 
 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Molestie ac feugiat sed lectus. In cursus turpis massa tincidunt dui ut ornare lectus sit. Leo vel fringilla est ullamcorper eget. Non enim praesent elementum facilisis leo. In dictum non consectetur a erat nam at. Amet purus gravida quis blandit turpis cursus in hac. Maecenas volutpat blandit aliquam etiam erat velit scelerisque in dictum. Pellentesque eu tincidunt tortor aliquam. Purus in mollis nunc sed id. Cursus metus aliquam eleifend mi in nulla posuere sollicitudin. Non pulvinar neque laoreet suspendisse. Ut aliquam purus sit amet luctus venenatis lectus magna fringilla. Tristique risus nec feugiat in fermentum posuere.
-
-<!-- CHUNK_PAGEBREAK -->
-
 
 # Methods
 
 ## Study subjects and data collection
 
 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Molestie ac feugiat sed lectus. In cursus turpis massa tincidunt dui ut ornare lectus sit. Leo vel fringilla est ullamcorper eget. Non enim praesent elementum facilisis leo. In dictum non consectetur a erat nam at. Amet purus gravida quis blandit turpis cursus in hac. Maecenas volutpat blandit aliquam etiam erat velit scelerisque in dictum. Pellentesque eu tincidunt tortor aliquam. Purus in mollis nunc sed id. Cursus metus aliquam eleifend mi in nulla posuere sollicitudin. Non pulvinar neque laoreet suspendisse. Ut aliquam purus sit amet luctus venenatis lectus magna fringilla. Tristique risus nec feugiat in fermentum posuere.
-
-## Some type of analysis
-
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Molestie ac feugiat sed lectus. In cursus turpis massa tincidunt dui ut ornare lectus sit. Leo vel fringilla est ullamcorper eget. Non enim praesent elementum facilisis leo. In dictum non consectetur a erat nam at. Amet purus gravida quis blandit turpis cursus in hac. Maecenas volutpat blandit aliquam etiam erat velit scelerisque in dictum. Pellentesque eu tincidunt tortor aliquam. Purus in mollis nunc sed id. Cursus metus aliquam eleifend mi in nulla posuere sollicitudin. Non pulvinar neque laoreet suspendisse. Ut aliquam purus sit amet luctus venenatis lectus magna fringilla. Tristique risus nec feugiat in fermentum posuere.
-
 
 ## Another type of analysis
 
@@ -46,41 +42,20 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i
 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Molestie ac feugiat sed lectus. In cursus turpis massa tincidunt dui ut ornare lectus sit. Leo vel fringilla est ullamcorper eget. Non enim praesent elementum facilisis leo. In dictum non consectetur a erat nam at. Amet purus gravida quis blandit turpis cursus in hac. Maecenas volutpat blandit aliquam etiam erat velit scelerisque in dictum. Pellentesque eu tincidunt tortor aliquam. Purus in mollis nunc sed id. Cursus metus aliquam eleifend mi in nulla posuere sollicitudin. Non pulvinar neque laoreet suspendisse. Ut aliquam purus sit amet luctus venenatis lectus magna fringilla. Tristique risus nec feugiat in fermentum posuere.
 
 
-`r add_paragraph_settings(align='center', paddings = list(t= 120, b= 20))`
-Text can be centered and <!---CHUNK_TEXT{str: 'styled', color: 'blue'}---> as well.
-
-
-<!---BLOCK_LANDSCAPE_START--->
-
-#### Table 1: Page breaks and landscape is optional
 ```{r}
-arsenal::tableby(arm ~ age + sex + race + bmi + fu.stat, data = arsenal::mockstudy) %>%  
-  mRclwhip::format_tableby(bold_var = F, bold_header = F, 
-                 header2 = list(values = c("", "Group 1", "Group 2", ""), colwidths = c(1, 2, 2, 1))) %>% 
-  mRclwhip::add_footer("P values arise from linear models for continuous variables and Pearson's chi-squared test for categorical.  Sample mean (sd) and N (%) are given.")
+head(iris)
 ```
 
-<!---BLOCK_LANDSCAPE_STOP--->
+\newpage
 
-The following will be in a separated section with 2 columns:
+# Supplemental Info
 
-<!---BLOCK_MULTICOL_START--->
+## R Software
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Molestie ac feugiat sed lectus. In cursus turpis massa tincidunt dui ut ornare lectus sit. Leo vel fringilla est ullamcorper eget. Non enim praesent elementum facilisis leo. In dictum non consectetur a erat nam at. Amet purus gravida quis blandit turpis cursus in hac. Maecenas volutpat blandit aliquam etiam erat velit scelerisque in dictum. Pellentesque eu tincidunt tortor aliquam. Purus in mollis nunc sed id. Cursus metus aliquam eleifend mi in nulla posuere sollicitudin. Non pulvinar neque laoreet suspendisse. Ut aliquam purus sit amet luctus venenatis lectus magna fringilla. Tristique risus nec feugiat in fermentum posuere.
-<!---CHUNK_COLUMNBREAK--->
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. At volutpat diam ut venenatis tellus in metus. Ut morbi tincidunt augue interdum velit euismod. Ultrices mi tempus imperdiet nulla. Mauris augue neque gravida in fermentum et sollicitudin ac orci. Sed viverra tellus in hac habitasse platea dictumst vestibulum rhoncus. In egestas erat imperdiet sed. Orci dapibus ultrices in iaculis nunc sed. Convallis tellus id interdum velit laoreet id donec. Condimentum id venenatis a condimentum. Risus nullam eget felis eget nunc lobortis mattis aliquam faucibus. Ullamcorper velit sed ullamcorper morbi tincidunt ornare. Ullamcorper malesuada proin libero nunc consequat interdum varius sit. Tellus in metus vulputate eu. Risus at ultrices mi tempus.
+All analyses were conducted using `r R.Version()$version.string`.
 
-<!---BLOCK_MULTICOL_STOP{widths: [3,3], space: 0.4, sep: false}--->
+Citation info from R:
 
-
-<!-- CHUNK_PAGEBREAK -->
-
-# Header 1
-
-## Header 2
-
-### Header 3
-
-#### Header 4
-
-##### Header 5
+```{r, comment=NA}
+citation()
+```

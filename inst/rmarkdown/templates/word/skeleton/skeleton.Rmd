@@ -1,0 +1,42 @@
+---
+title: "Title"
+date: '`r format(Sys.time(), "%d %B, %Y")`'
+author: "Author"
+output: mayodown::mayodocx
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(
+  echo = FALSE,
+  dpi = 600,
+  fig.cap = TRUE,
+  fig.align = "center"
+)
+
+library(officedown)
+library(tidyverse)
+```
+
+
+\newpage
+
+```{r}
+officer::block_toc()
+```
+
+\newpage
+
+
+\newpage
+
+# Supplemental Info
+
+## R Software
+
+All analyses were conducted using `r R.Version()$version.string`.
+
+Citation info from R:
+
+```{r, comment=NA}
+citation()
+```

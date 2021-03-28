@@ -4,39 +4,12 @@
 \alias{mayodocx}
 \title{A mayo themed docx format}
 \usage{
-mayodocx(
-  mapstyles,
-  header = TRUE,
-  contact = TRUE,
-  greeting = TRUE,
-  in_contact = list(),
-  in_greeting = list(),
-  reference_docx = NA,
-  ...
-)
+mayodocx(...)
 }
 \arguments{
-\item{mapstyles}{a named list of style to be replaced in the generated}
-
-\item{header}{logical; should the Mayo header logo be included?}
-
-\item{contact}{logical; should the contact section be included?}
-
-\item{greeting}{logical; should the greeting section be included?}
-
-\item{in_contact}{Named list of arguments to for the contact section.
-Can inlude \code{person}, \code{department}, \code{location}, \code{ext}, and \code{email}.
-These options can be set globaly in .Rprofile.}
-
-\item{in_greeting}{Named list of arguments for the greeting section.
-Can inlude \code{from}, \code{to}, and \code{re}.}
-
-\item{reference_docx}{Use the specified file as a style reference
-in producing a docx file.  If left unused,
-a default template from the mayodown package will be used.}
-
 \item{...}{arguments used by \link[rmarkdown]{word_document}}
 }
 \description{
-A mayo themed docx format
+Format for converting from R Markdown to MS Word
+based on \link[officedown]{rdocx_document}.
 }

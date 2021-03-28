@@ -58,8 +58,8 @@ diamonds %>% select(cut, carat, color, clarity) %>% head() %>%  knitr::kable()
 ## Plot
 
 ```{r}
-data <- diamonds %>% 
-  group_by(cut) %>% 
+data <- diamonds %>%
+  group_by(cut) %>%
   count()
 
 ggplot(data, aes(cut, n, fill = cut)) +

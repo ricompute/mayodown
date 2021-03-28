@@ -6,3 +6,6 @@ tests
 docs/
 docs
 tests/
+doc
+Meta
+.DS_Store

@@ -8,17 +8,13 @@ r_github_packages:
   - overdodactyl/mayotheme
   - jimhester/lintr
 
-after_success:
-  - R CMD INSTALL $PKG_TARBALL
-  - Rscript -e 'lintr::lint_package()'
+before_install:
+ - sudo apt-get -y install libharfbuzz-dev libfribidi-dev
 
-jobs:
-  include:
-  - r: release
-    before_cache:
-    - Rscript -e 'remotes::install_cran("pkgdown")'
-    - Rscript -e 'remotes::install_github("mayoverse/mayotemplate")'
-    deploy:
-      provider: script
-      script: Rscript -e 'pkgdown::deploy_site_github(verbose = TRUE)'
-      skip_cleanup: true
+before_cache:
+ - Rscript -e 'install.packages("pkgdown")'
+ - Rscript -e 'remotes::install_github("mayoverse/mayotemplate")'
+deploy:
+  provider: script
+  script: Rscript -e 'install.packages("pkgdown"); pkgdown::deploy_site_github()'
+  skip_cleanup: true

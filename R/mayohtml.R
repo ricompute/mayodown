@@ -45,7 +45,10 @@ mayohtml <- function(toc = FALSE, toc_float = TRUE, toc_depth = 6,
     # highlight = "pygments",
     css = c(css_files, css_file),
     self_contained = TRUE,
-    includes = rmarkdown::includes(in_header = header_file, after_body = footer),
+    includes = rmarkdown::includes(
+      in_header = header_file,
+      after_body = footer
+    ),
     ...
   )
 
