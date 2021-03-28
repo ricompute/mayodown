@@ -1,0 +1,5 @@
+name: Mayo Ioslides Presentation Template
+description: >
+ Template for creating Mayo Ioslides Presentations in R Markdown.
+create_dir: true
+

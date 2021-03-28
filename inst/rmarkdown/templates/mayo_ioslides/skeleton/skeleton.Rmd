@@ -1,0 +1,81 @@
+---
+title: "Title"
+subtitle: "Sub-Title"
+author: "Name"
+date: "Date"
+output:
+  mayodown::mayoioslides:
+    logo: MC_stack_4c.png
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo=FALSE, message=FALSE, warning=FALSE)
+```
+
+# Introduction
+
+## How to Use?
+
+From R Studio:
+
+1. File -> New File -> R Markdown 
+2. Select From Template
+3. Select Mayo Ioslides Presentation Template 
+4. Enter Name and Location and click OK
+    + A new directory at the location specified will be created containing the template Rmd file
+    + The Rmd file will also open in the R Studio editor
+5. Edit the file and click the Knit button to compile
+
+## How to Use?
+
+From R Session:
+
+```{r, echo=TRUE, eval=FALSE}
+library(rmarkdown)  
+draft("/dir/location/myfile.Rmd", template="mayo_ioslides", 
+      package="rlocal")
+```
+
+- A new directory (/dir/location/myfile) will be created
+- /dir/location/myfile/myfile.Rmd will also open
+- Edit myfile.Rmd and save
+- Compile using render function
+
+```{r, echo=TRUE, eval=FALSE}
+render("/dir/location/myfile/myfile.Rmd")
+```
+
+## Example Slide with Bullets 
+
+- Bullet 1
+- Bullet 2
+    + Sub Bullet 1
+    + Sub Bullet 2
+        * Sub Sub Bullet 1
+- Bullet 3
+    1. Ordered Sub Bullet 1
+    2. Ordered Sub Bullet 2
+
+## Example Slide with R Output
+
+```{r ex1, echo=TRUE}
+summary(cars)
+```
+
+## Example Slide with Plot
+
+```{r ex2}
+plot(pressure)
+```
+
+# Customization
+
+## Many options available
+
+http://rmarkdown.rstudio.com/ioslides_presentation_format.html
+
+- Display Modes (f=fullscreen, w=widescreen, o=overview mode)
+- Incremental Bullets
+- Etc.
+
+

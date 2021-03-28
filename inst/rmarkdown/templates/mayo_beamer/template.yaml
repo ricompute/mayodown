@@ -1,0 +1,5 @@
+name: Mayo Beamer Presentation Template
+description: >
+ Template for creating Mayo Beamer Presentations in R Markdown.
+create_dir: true
+
