@@ -1,6 +1,6 @@
 Package: mayodown
 Title: Create Mayo Styled Markdown Files
-Version: 0.0.1.0
+Version: 0.0.1.1
 Authors@R: as.person(c(
     "Pat Johnson <Johnson.Patrick3@mayo.edu> [aut, cre]"
   ))
