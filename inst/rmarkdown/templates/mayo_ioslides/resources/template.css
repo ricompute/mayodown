@@ -12,11 +12,11 @@
 
 .title-slide hgroup h1 {
   font-size: 60px;
-  color: rgb(0,70,173);
-  
+  color: var(--mayo-blue);
+
 }
 .title-slide hgroup h2 {
-  color: rgb(0,70,173);
+  color: var(--mayo-blue);
 }
 .title-slide hgroup p {
   color: black;
@@ -34,7 +34,7 @@ slides > slide.backdrop {
 /****************************/
 body {
   background: black;  /*Black is the default*/
-} 
+}
 
 /*********************************************/
 /* Changes Section Slide Background to White */
@@ -44,7 +44,7 @@ slides > slide.dark {
 }
 
 .segue h2 {
-  color: rgb(0,70,173);
+  color: var(--mayo-blue);
 }
 
 .segue hgroup {
@@ -59,7 +59,7 @@ slides > slide.dark {
 /* Changes Slide Text Colors to Mayo Blue */
 /******************************************/
 h1, h2, h3 {
-  color: rgb(0,70,173);
+  color: var(--mayo-blue);
 }
 
 p, ol, ul {
@@ -86,7 +86,7 @@ ul.b {
 /******************************/
 /*
 pre {
-  color: rgb(0,70,173);
+  color: var(--mayo-blue);
 }
 */
 /*

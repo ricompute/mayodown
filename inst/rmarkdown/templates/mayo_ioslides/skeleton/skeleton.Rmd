@@ -3,9 +3,7 @@ title: "Title"
 subtitle: "Sub-Title"
 author: "Name"
 date: "Date"
-output:
-  mayodown::mayoioslides:
-    logo: MC_stack_4c.png
+output: mayodown::mayoioslides
 ---
 
 ```{r setup, include=FALSE}
