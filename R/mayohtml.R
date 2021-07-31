@@ -5,10 +5,11 @@
 #' @param toc_depth Depth of headers to include in table of contents
 #' @param number_sections logical; TRUE to number section headings
 #' @param ... Additional arguments passed to rmarkdown::html_document
+#' @param extra_css Additional CSS files to include.
 #' @export
 
 mayohtml <- function(toc = FALSE, toc_float = TRUE, toc_depth = 6,
-                    number_sections = FALSE, ...) {
+                    number_sections = FALSE, ..., extra_css = NULL) {
 
   ## Directories for resources
   pkg_resource <- function(...) {
@@ -43,7 +44,7 @@ mayohtml <- function(toc = FALSE, toc_float = TRUE, toc_depth = 6,
     toc_depth = toc_depth,
     number_sections = number_sections,
     # highlight = "pygments",
-    css = c(css_files, css_file),
+    css = c(css_files, css_file, extra_css),
     self_contained = TRUE,
     includes = rmarkdown::includes(
       in_header = header_file,

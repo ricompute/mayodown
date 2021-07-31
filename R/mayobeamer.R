@@ -1,8 +1,9 @@
 #' A Mayo themed Beamer template
 #' @param ... reserved for future arguments
+#' @param extra_preamble Additional tex files to include.
 #' @return NULL
 #' @export
-mayobeamer <- function(...) {
+mayobeamer <- function(..., extra_preamble = NULL) {
 
   template <- system.file(
     "rmarkdown/templates/mayo_beamer/resources/template.tex",
@@ -38,7 +39,7 @@ mayobeamer <- function(...) {
   rmarkdown::beamer_presentation(
     ...,
     template=template,
-    includes=rmarkdown::includes(in_header = tmp_preamble)
+    includes=rmarkdown::includes(in_header = c(tmp_preamble, extra_preamble))
   )
 
 }

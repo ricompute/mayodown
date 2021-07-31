@@ -4,10 +4,12 @@
 \alias{mayobeamer}
 \title{A Mayo themed Beamer template}
 \usage{
-mayobeamer(...)
+mayobeamer(..., extra_preamble = NULL)
 }
 \arguments{
 \item{...}{reserved for future arguments}
+
+\item{extra_preamble}{Additional tex files to include.}
 }
 \description{
 A Mayo themed Beamer template

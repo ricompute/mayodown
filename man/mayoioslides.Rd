@@ -4,10 +4,12 @@
 \alias{mayoioslides}
 \title{A Mayo themed Ioslides Template}
 \usage{
-mayoioslides(...)
+mayoioslides(..., extra_css = NULL)
 }
 \arguments{
 \item{...}{reserved for future arguments}
+
+\item{extra_css}{Additional CSS files to include.}
 }
 \description{
 A Mayo themed Ioslides Template

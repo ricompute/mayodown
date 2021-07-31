@@ -9,7 +9,8 @@ mayohtml(
   toc_float = TRUE,
   toc_depth = 6,
   number_sections = FALSE,
-  ...
+  ...,
+  extra_css = NULL
 )
 }
 \arguments{
@@ -23,6 +24,8 @@ of the main document content.}
 \item{number_sections}{logical; TRUE to number section headings}
 
 \item{...}{Additional arguments passed to rmarkdown::html_document}
+
+\item{extra_css}{Additional CSS files to include.}
 }
 \description{
 A mayo themed html format
