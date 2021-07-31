@@ -9,3 +9,4 @@ tests/
 doc
 Meta
 .DS_Store
+.Rhistory
