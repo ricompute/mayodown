@@ -1,11 +1,12 @@
 Package: mayodown
 Title: Create Mayo Styled Markdown Files
-Version: 0.0.1.3
+Version: 0.0.1.4
 Authors@R: as.person(c(
     "Pat Johnson <Johnson.Patrick3@mayo.edu> [aut, cre]",
     "Ethan Heinzen <heinzen.ethan@mayo.edu> [ctb]",
     "Krista Goergen <goergen.krista@mayo.edu> [ctb]",
-    "Jason Sinnwell <sinnwell.jason@mayo.edu> [ctb]"
+    "Jason Sinnwell <sinnwell.jason@mayo.edu> [ctb]",
+    "Richard Lindsey <Lindsey.Richard@mayo.edu> [ctb]"
   ))
 Description: Used to create a Mayo themed PDF or Word document from R Markdown.
 URL: https://mayoverse.github.io/mayodown, https://github.com/mayoverse/mayodown/
