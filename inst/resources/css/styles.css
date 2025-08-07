@@ -48,6 +48,39 @@ span.st,
 span.bn,
 code span.dv{ color: var(--mayo-brightblue); }
 
+/* Ensure code uses monospaced font */
+code, kbd, pre, samp {
+  font-family: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace !important;
+}
+/* Ensure syntax highlighted code also uses monospaced font */
+code span,
+code span.kw,  /* Keyword */
+code span.ot,  /* Other */
+code span.fl,  /* Float */
+code span.sc,  /* SpecialChar */
+code span.st,  /* String */
+code span.bn,  /* BaseN */
+code span.dv,  /* DecVal */
+code span.co,  /* Comment */
+code span.at,  /* Attribute */
+code span.cv,  /* CommentVar */
+code span.cf,  /* ControlFlow */
+code span.op,  /* Operator */
+code span.bu,  /* BuiltIn */
+code span.ex,  /* Extension */
+code span.pp,  /* Preprocessor */
+code span.in,  /* Information */
+code span.vs,  /* VerbatimString */
+code span.ss,  /* SpecialString */
+code span.im,  /* Import */
+code span.va,  /* Variable */
+code span.fu,  /* Function */
+code span.re,  /* RegionMarker */
+code span.er   /* Error */
+{
+  font-family: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace !important;
+}
+
 
 @media (max-width: 768px) {
   #TOC {
