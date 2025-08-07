@@ -6,10 +6,12 @@
 #' @param number_sections logical; TRUE to number section headings
 #' @param ... Additional arguments passed to rmarkdown::html_document
 #' @param extra_css Additional CSS files to include.
+#' @param zoom_img logical; TRUE to enable zooming images on click
 #' @export
 
 mayohtml <- function(toc = FALSE, toc_float = TRUE, toc_depth = 6,
-                    number_sections = FALSE, ..., extra_css = NULL) {
+                    number_sections = FALSE, ..., extra_css = NULL,
+                    zoom_img = FALSE) {
 
   ## Directories for resources
   pkg_resource <- function(...) {
@@ -32,6 +34,13 @@ mayohtml <- function(toc = FALSE, toc_float = TRUE, toc_depth = 6,
   header_file <- tempfile(fileext = ".html")
   writeLines(as.character(header), header_file)
 
+  if (zoom_img) {
+    header_files <- c(header_file,
+                      pkg_resource("html", "zoom.html"))
+  } else {
+    header_files <- header_file
+  }
+
   css_files <- mayotheme::use_mayo_css(c("color_variables", "topbar",
                                          "tables", "bootstrap"))
   css_file <- pkg_resource("css", "styles.css")
@@ -47,7 +56,7 @@ mayohtml <- function(toc = FALSE, toc_float = TRUE, toc_depth = 6,
     css = c(css_files, css_file, extra_css),
     self_contained = TRUE,
     includes = rmarkdown::includes(
-      in_header = header_file,
+      in_header = header_files,
       after_body = footer
     ),
     ...

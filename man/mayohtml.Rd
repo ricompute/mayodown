@@ -10,7 +10,8 @@ mayohtml(
   toc_depth = 6,
   number_sections = FALSE,
   ...,
-  extra_css = NULL
+  extra_css = NULL,
+  zoom_img = FALSE
 )
 }
 \arguments{
@@ -26,6 +27,8 @@ of the main document content.}
 \item{...}{Additional arguments passed to rmarkdown::html_document}
 
 \item{extra_css}{Additional CSS files to include.}
+
+\item{zoom_img}{logical; TRUE to enable zooming images on click}
 }
 \description{
 A mayo themed html format
