@@ -27,7 +27,7 @@ Suggests:
     usethis
 Remotes:
   davidgohel/officedown,
-  mayoverse/mayotheme
+  ricompute/mayotheme
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.3.2
 VignetteBuilder: knitr
