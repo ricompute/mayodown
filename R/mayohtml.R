@@ -46,6 +46,11 @@ mayohtml <- function(toc = FALSE, toc_float = TRUE, toc_depth = 6,
   css_file <- pkg_resource("css", "styles.css")
   footer <- pkg_resource("html", "footer.html")
 
+  # Add Lua filter to allow colored text
+  lua_filter <-  rmarkdown::pandoc_lua_filter_args(
+    system.file("pandoc", "color-text.lua", package = "mayodown")
+  )
+
   # call the base html_document function
   rmarkdown::html_document(
     toc = toc,
@@ -59,6 +64,7 @@ mayohtml <- function(toc = FALSE, toc_float = TRUE, toc_depth = 6,
       in_header = header_files,
       after_body = footer
     ),
+    pandoc_args = lua_filter,
     ...
   )
 

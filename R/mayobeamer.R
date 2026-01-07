@@ -35,11 +35,17 @@ mayobeamer <- function(..., extra_preamble = NULL) {
   # Write the result
   cat(preamble_text, file = tmp_preamble, sep="\n")
 
+  # Add Lua filter to allow colored text
+  lua_filter <-  rmarkdown::pandoc_lua_filter_args(
+    system.file("pandoc", "color-text.lua", package = "mayodown")
+  )
+
   # Render
   rmarkdown::beamer_presentation(
     ...,
     template=template,
-    includes=rmarkdown::includes(in_header = c(tmp_preamble, extra_preamble))
+    includes=rmarkdown::includes(in_header = c(tmp_preamble, extra_preamble)),
+    pandoc_args = lua_filter
   )
 
 }
