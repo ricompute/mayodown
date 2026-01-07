@@ -1,6 +1,6 @@
 Package: mayodown
 Title: Create Mayo Styled Markdown Files
-Version: 0.0.1.6
+Version: 0.0.1.7
 Authors@R: as.person(c(
     "Pat Johnson <Johnson.Patrick3@mayo.edu> [aut, cre]",
     "Ethan Heinzen <heinzen.ethan@mayo.edu> [ctb]",
