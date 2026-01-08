@@ -2,34 +2,40 @@
 % Please edit documentation in R/mayohtml.R
 \name{mayohtml}
 \alias{mayohtml}
-\title{A mayo themed html format}
+\title{A Mayo-themed HTML format}
 \usage{
 mayohtml(
-  toc = FALSE,
+  toc = TRUE,
   toc_float = TRUE,
   toc_depth = 6,
-  number_sections = FALSE,
-  ...,
+  number_sections = TRUE,
   extra_css = NULL,
-  zoom_img = TRUE
+  zoom_img = TRUE,
+  self_contained = TRUE,
+  highlight = "tango",
+  ...
 )
 }
 \arguments{
-\item{toc}{logical; TRUE to include a table of contents in the output}
+\item{toc}{logical; \code{TRUE} to include a table of contents in the output}
 
-\item{toc_float}{TRUE to float the table of contents to the left
+\item{toc_float}{\code{TRUE} to float the table of contents to the left
 of the main document content.}
 
 \item{toc_depth}{Depth of headers to include in table of contents}
 
-\item{number_sections}{logical; TRUE to number section headings}
-
-\item{...}{Additional arguments passed to rmarkdown::html_document}
+\item{number_sections}{logical; \code{TRUE} to number section headings}
 
 \item{extra_css}{Additional CSS files to include.}
 
-\item{zoom_img}{logical; TRUE to enable zooming images on click (default)}
+\item{zoom_img}{logical; \code{TRUE} to enable zooming images on click}
+
+\item{self_contained}{logical; \code{TRUE} to create a self-contained HTML document}
+
+\item{highlight}{Syntax highlight engine and style. Defaults to "tango"}
+
+\item{...}{Additional arguments passed to \code{\link[rmarkdown:html_document]{rmarkdown::html_document()}}}
 }
 \description{
-A mayo themed html format
+A Mayo-themed HTML format
 }
