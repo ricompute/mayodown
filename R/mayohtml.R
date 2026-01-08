@@ -6,12 +6,12 @@
 #' @param number_sections logical; TRUE to number section headings
 #' @param ... Additional arguments passed to rmarkdown::html_document
 #' @param extra_css Additional CSS files to include.
-#' @param zoom_img logical; TRUE to enable zooming images on click
+#' @param zoom_img logical; TRUE to enable zooming images on click (default)
 #' @export
 
 mayohtml <- function(toc = FALSE, toc_float = TRUE, toc_depth = 6,
                     number_sections = FALSE, ..., extra_css = NULL,
-                    zoom_img = FALSE) {
+                    zoom_img = TRUE) {
 
   ## Directories for resources
   pkg_resource <- function(...) {

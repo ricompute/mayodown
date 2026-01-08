@@ -11,7 +11,7 @@ mayohtml(
   number_sections = FALSE,
   ...,
   extra_css = NULL,
-  zoom_img = FALSE
+  zoom_img = TRUE
 )
 }
 \arguments{
@@ -28,7 +28,7 @@ of the main document content.}
 
 \item{extra_css}{Additional CSS files to include.}
 
-\item{zoom_img}{logical; TRUE to enable zooming images on click}
+\item{zoom_img}{logical; TRUE to enable zooming images on click (default)}
 }
 \description{
 A mayo themed html format
