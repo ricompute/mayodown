@@ -6,6 +6,7 @@
 \usage{
 mayohtml(
   mayo_footer = TRUE,
+  copyright_year = NULL,
   toc = TRUE,
   toc_float = TRUE,
   toc_depth = 6,
@@ -19,6 +20,9 @@ mayohtml(
 }
 \arguments{
 \item{mayo_footer}{logical; \code{TRUE} to include the Mayo copyright footer}
+
+\item{copyright_year}{numeric; copyright year to include in the Mayo footer.
+If \code{NULL} (default), the current year is used.}
 
 \item{toc}{logical; \code{TRUE} to include a table of contents in the output}
 

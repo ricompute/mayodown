@@ -1,5 +1,7 @@
 #' @title A Mayo-themed HTML format
 #' @param mayo_footer logical; `TRUE` to include the Mayo copyright footer
+#' @param copyright_year numeric; copyright year to include in the Mayo footer.
+#'     If `NULL` (default), the current year is used.
 #' @param toc logical; `TRUE` to include a table of contents in the output
 #' @param toc_float `TRUE` to float the table of contents to the left
 #'     of the main document content.
@@ -12,16 +14,17 @@
 #' @param ... Additional arguments passed to [rmarkdown::html_document()]
 #' @export
 
-mayohtml <- function(mayo_footer = TRUE, toc = TRUE, toc_float = TRUE,
-                     toc_depth = 6, number_sections = TRUE, extra_css = NULL,
-                    zoom_img = TRUE, self_contained = TRUE,
-                    highlight = "tango", ...) {
+mayohtml <- function(mayo_footer = TRUE, copyright_year = NULL, toc = TRUE,
+                     toc_float = TRUE, toc_depth = 6, number_sections = TRUE,
+                     extra_css = NULL, zoom_img = TRUE, self_contained = TRUE,
+                     highlight = "tango", ...) {
 
   ## Directories for resources
   pkg_resource <- function(...) {
     system.file("resources", ..., package = "mayodown")
   }
 
+  ## Generate header file(s)
   header <-  htmltools::tagList(
     htmltools::div(class = "topbar"),
     htmltools::img(src = mayotheme::use_mayo_logo("black", data_uri = TRUE),
@@ -45,9 +48,17 @@ mayohtml <- function(mayo_footer = TRUE, toc = TRUE, toc_float = TRUE,
     header_files <- header_file
   }
 
+  ## CSS files
   css_files <- mayotheme::use_mayo_css(c("color_variables", "topbar",
                                          "tables", "bootstrap"))
   css_file <- pkg_resource("css", "styles.css")
+
+  ## Generate footer file
+  if (is.null(copyright_year)) {
+    copyright_year <- format(Sys.Date(), "%Y")
+  } else {
+    copyright_year <- as.character(copyright_year)
+  }
 
   if (mayo_footer) {
   footer <- htmltools::tags$div(
@@ -62,7 +73,7 @@ mayohtml <- function(mayo_footer = TRUE, toc = TRUE, toc_float = TRUE,
           htmltools::tags$small(
             class = "text-muted",
             paste0("© 1998–",
-                   format(Sys.Date(), "%Y"),
+                   copyright_year,
                    " Mayo Foundation for Medical Education and Research. All rights reserved.")
           ),
           htmltools::tags$br(),
@@ -77,12 +88,12 @@ mayohtml <- function(mayo_footer = TRUE, toc = TRUE, toc_float = TRUE,
   footer_file <- tempfile(fileext = ".html")
   writeLines(as.character(footer), footer_file)
 
-  # Add Lua filter to allow colored text
+  ## Add Lua filter to allow colored text
   lua_filter <-  rmarkdown::pandoc_lua_filter_args(
     system.file("pandoc", "color-text.lua", package = "mayodown")
   )
 
-  # call the base html_document function
+  ## call the base html_document function
   rmarkdown::html_document(
     toc = toc,
     toc_float = toc_float,
