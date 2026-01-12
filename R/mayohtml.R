@@ -1,4 +1,5 @@
 #' @title A Mayo-themed HTML format
+#' @param mayo_footer logical; `TRUE` to include the Mayo copyright footer
 #' @param toc logical; `TRUE` to include a table of contents in the output
 #' @param toc_float `TRUE` to float the table of contents to the left
 #'     of the main document content.
@@ -11,8 +12,8 @@
 #' @param ... Additional arguments passed to [rmarkdown::html_document()]
 #' @export
 
-mayohtml <- function(toc = TRUE, toc_float = TRUE, toc_depth = 6,
-                    number_sections = TRUE, extra_css = NULL,
+mayohtml <- function(mayo_footer = TRUE, toc = TRUE, toc_float = TRUE,
+                     toc_depth = 6, number_sections = TRUE, extra_css = NULL,
                     zoom_img = TRUE, self_contained = TRUE,
                     highlight = "tango", ...) {
 
@@ -47,7 +48,34 @@ mayohtml <- function(toc = TRUE, toc_float = TRUE, toc_depth = 6,
   css_files <- mayotheme::use_mayo_css(c("color_variables", "topbar",
                                          "tables", "bootstrap"))
   css_file <- pkg_resource("css", "styles.css")
-  footer <- pkg_resource("html", "footer.html")
+
+  if (mayo_footer) {
+  footer <- htmltools::tags$div(
+    class = "footerholder",
+    htmltools::tags$footer(
+      class = "footer",
+      htmltools::tags$hr(),
+      htmltools::tags$div(
+        class = "row",
+        htmltools::tags$div(
+          class="col-md-12", align="center",
+          htmltools::tags$small(
+            class = "text-muted",
+            paste0("© 1998–",
+                   format(Sys.Date(), "%Y"),
+                   " Mayo Foundation for Medical Education and Research. All rights reserved.")
+          ),
+          htmltools::tags$br(),
+          htmltools::tags$small(
+            class = "text-muted",
+            "Proprietary and confidential. Do not distribute."
+          )
+        )
+      )))} else {
+        footer <- NULL
+      }
+  footer_file <- tempfile(fileext = ".html")
+  writeLines(as.character(footer), footer_file)
 
   # Add Lua filter to allow colored text
   lua_filter <-  rmarkdown::pandoc_lua_filter_args(
@@ -65,7 +93,7 @@ mayohtml <- function(toc = TRUE, toc_float = TRUE, toc_depth = 6,
     self_contained = self_contained,
     includes = rmarkdown::includes(
       in_header = header_files,
-      after_body = footer
+      after_body = footer_file
     ),
     pandoc_args = lua_filter,
     ...

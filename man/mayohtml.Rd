@@ -5,6 +5,7 @@
 \title{A Mayo-themed HTML format}
 \usage{
 mayohtml(
+  mayo_footer = TRUE,
   toc = TRUE,
   toc_float = TRUE,
   toc_depth = 6,
@@ -17,6 +18,8 @@ mayohtml(
 )
 }
 \arguments{
+\item{mayo_footer}{logical; \code{TRUE} to include the Mayo copyright footer}
+
 \item{toc}{logical; \code{TRUE} to include a table of contents in the output}
 
 \item{toc_float}{\code{TRUE} to float the table of contents to the left
