@@ -15,6 +15,7 @@ mayohtml(
   zoom_img = TRUE,
   self_contained = TRUE,
   highlight = "tango",
+  table_width = c("auto", "full"),
   ...
 )
 }
@@ -40,6 +41,12 @@ of the main document content.}
 \item{self_contained}{logical; \code{TRUE} to create a self-contained HTML document}
 
 \item{highlight}{Syntax highlight engine and style. Defaults to "tango"}
+
+\item{table_width}{One of \code{"auto"} (default) or \code{"full"}. Controls the
+default width of \code{knitr::kable()} tables. \code{"auto"} sizes tables to fit
+their content; \code{"full"} spans the full width of the content area
+(Bootstrap default). Individual tables can always be overridden with
+\code{kableExtra::kable_styling(full_width = ...)}.}
 
 \item{...}{Additional arguments passed to \code{\link[rmarkdown:html_document]{rmarkdown::html_document()}}}
 }

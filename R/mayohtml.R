@@ -11,13 +11,20 @@
 #' @param zoom_img logical; `TRUE` to enable zooming images on click
 #' @param self_contained logical; `TRUE` to create a self-contained HTML document
 #' @param highlight Syntax highlight engine and style. Defaults to "tango"
+#' @param table_width One of `"auto"` (default) or `"full"`. Controls the
+#'     default width of `knitr::kable()` tables. `"auto"` sizes tables to fit
+#'     their content; `"full"` spans the full width of the content area
+#'     (Bootstrap default). Individual tables can always be overridden with
+#'     `kableExtra::kable_styling(full_width = ...)`.
 #' @param ... Additional arguments passed to [rmarkdown::html_document()]
 #' @export
 
 mayohtml <- function(mayo_footer = TRUE, copyright_year = NULL, toc = TRUE,
                      toc_float = TRUE, toc_depth = 6, number_sections = TRUE,
                      extra_css = NULL, zoom_img = TRUE, self_contained = TRUE,
-                     highlight = "tango", ...) {
+                     highlight = "tango", table_width = c("auto", "full"), ...) {
+
+  table_width <- match.arg(table_width)
 
   ## Directories for resources
   pkg_resource <- function(...) {
@@ -53,6 +60,17 @@ mayohtml <- function(mayo_footer = TRUE, copyright_year = NULL, toc = TRUE,
                                          "tables", "bootstrap"))
   css_file <- pkg_resource("css", "styles.css")
 
+  ## Optional table-width override (must come last to win over Bootstrap)
+  if (table_width == "auto") {
+    table_css_file <- tempfile(fileext = ".css")
+    writeLines(
+      "table.table { width: auto !important; margin-right: auto; }",
+      table_css_file
+    )
+  } else {
+    table_css_file <- NULL
+  }
+
   ## Generate footer file
   if (is.null(copyright_year)) {
     copyright_year <- format(Sys.Date(), "%Y")
@@ -61,30 +79,30 @@ mayohtml <- function(mayo_footer = TRUE, copyright_year = NULL, toc = TRUE,
   }
 
   if (mayo_footer) {
-  footer <- htmltools::tags$div(
-    class = "footerholder",
-    htmltools::tags$footer(
-      class = "footer",
-      htmltools::tags$hr(),
-      htmltools::tags$div(
-        class = "row",
+    footer <- htmltools::tags$div(
+      class = "footerholder",
+      htmltools::tags$footer(
+        class = "footer",
+        htmltools::tags$hr(),
         htmltools::tags$div(
-          class="col-md-12", align="center",
-          htmltools::tags$small(
-            class = "text-muted",
-            paste0("© 1998–",
-                   copyright_year,
-                   " Mayo Foundation for Medical Education and Research. All rights reserved.")
-          ),
-          htmltools::tags$br(),
-          htmltools::tags$small(
-            class = "text-muted",
-            "Proprietary and confidential. Do not distribute."
+          class = "row",
+          htmltools::tags$div(
+            class="col-md-12", align="center",
+            htmltools::tags$small(
+              class = "text-muted",
+              paste0("© 1998–",
+                     copyright_year,
+                     " Mayo Foundation for Medical Education and Research. All rights reserved.")
+            ),
+            htmltools::tags$br(),
+            htmltools::tags$small(
+              class = "text-muted",
+              "Proprietary and confidential. Do not distribute."
+            )
           )
-        )
-      )))} else {
-        footer <- NULL
-      }
+        )))} else {
+          footer <- NULL
+        }
   footer_file <- tempfile(fileext = ".html")
   writeLines(as.character(footer), footer_file)
 
@@ -100,7 +118,7 @@ mayohtml <- function(mayo_footer = TRUE, copyright_year = NULL, toc = TRUE,
     toc_depth = toc_depth,
     number_sections = number_sections,
     highlight = highlight,
-    css = c(css_files, css_file, extra_css),
+    css = c(css_files, css_file, extra_css, table_css_file),
     self_contained = self_contained,
     includes = rmarkdown::includes(
       in_header = header_files,
