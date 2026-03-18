@@ -5,8 +5,6 @@
 
 <!-- badges: start -->
 
-[![Travis build
-status](https://travis-ci.org/mayoverse/mayodown.svg?branch=master)](https://travis-ci.org/mayoverse/mayodown)
 <!-- badges: end -->
 
 The goal of mayodown is to quickly generate Mayo themed R Markdown
@@ -18,22 +16,22 @@ You can install `mayodown` from GitHub:
 
 ``` r
 # install.packages("devtools")
-devtools::install_github("mayoverse/mayodown")
+devtools::install_github("KhoslaLab/mayodown")
 ```
 
 ## Supported Formats
 
 `mayodown` supports the following outputs:
 
--   HTML document (based on `rmarkdown::html_document`)
+- HTML document (based on `rmarkdown::html_document`)
 
--   Microsoft Word document (based on `officedown::rdocx_document`)
+- Microsoft Word document (based on `officedown::rdocx_document`)
 
--   remark.js slide presentation (based on `xaringan::moon_reader`)
+- remark.js slide presentation (based on `xaringan::moon_reader`)
 
--   Beamer slides (based on `rmarkdown::beamer_presentation`)
+- Beamer slides (based on `rmarkdown::beamer_presentation`)
 
--   ioslides (based on `rmarkdown::ioslides_presentation`)
+- ioslides (based on `rmarkdown::ioslides_presentation`)
 
 ## Usage
 
@@ -45,7 +43,7 @@ example:
 ---
 title: "Mayo-Themed Rmarkdown"
 author: First Last
-date: "28 March, 2021"
+date: "18 March, 2026"
 output: mayodown::mayohtml
 ---
 ```
@@ -61,12 +59,12 @@ You can open a `mayodown` template using RStudio or one of the
 
 **Step 1:** Click the “New File” button and choose “R Markdown”.
 
-<img src="man/figures/open_markdown.png" width="60%" style="display: block; margin: auto;" />
+<img src="man/figures/open_markdown.png" alt="" width="60%" style="display: block; margin: auto;" />
 
 **Step 2:** In the “From Template” tab, choose one of the built-in
 templates.
 
-<img src="man/figures/open_template.png" width="60%" style="display: block; margin: auto;" />
+<img src="man/figures/open_template.png" alt="" width="60%" style="display: block; margin: auto;" />
 
 ### `mayodown` Functions
 

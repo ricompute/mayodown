@@ -15,7 +15,6 @@ knitr::opts_chunk$set(
 # mayodown
 
 <!-- badges: start -->
-[![Travis build status](https://travis-ci.org/mayoverse/mayodown.svg?branch=master)](https://travis-ci.org/mayoverse/mayodown)
 <!-- badges: end -->
 
 The goal of mayodown is to quickly generate Mayo themed R Markdown documents with a standardized and polished look.
@@ -26,7 +25,7 @@ You can install `mayodown` from GitHub:
 
 ```r
 # install.packages("devtools")
-devtools::install_github("mayoverse/mayodown")
+devtools::install_github("KhoslaLab/mayodown")
 ```
 
 ## Supported Formats
